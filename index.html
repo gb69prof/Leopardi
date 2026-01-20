@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leopardi – Home</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- 4: barra superiore -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brandMark">L</div>
+        <div class="brandTitle">
+          <div class="t">Giacomo Leopardi</div>
+          <div class="s">Home – video, lezione, appunti</div>
+        </div>
+      </div>
+
+      <div class="topActions">
+        <div class="pill" title="Suggerimento: inserisci un file video in assets/intro.mp4">
+          <strong>Sezione 1</strong>
+          <span>Video introduttivo</span>
+        </div>
+        <button class="btn" id="openLayout" type="button">Vedi schema</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- 1 + 5-8 (video e icone) -->
+      <section class="card">
+        <div class="cardHeader">
+          <div class="title">1) Video introduttivo</div>
+          <div class="hint">assets/intro.mp4</div>
+        </div>
+        <div class="videoWrap">
+          <div class="video">
+            <video controls preload="metadata">
+              <source src="assets/intro.mp4" type="video/mp4" />
+              Il tuo browser non supporta il tag video.
+            </video>
+          </div>
+        </div>
+
+        <!-- 5-8: icone -->
+        <div class="iconsRow" aria-label="Percorsi">
+          <a class="iconBtn" href="biografia.html" title="Vai alla biografia">
+            <div class="glyph">V</div>
+            <div class="lbl">Vita</div>
+            <div class="sub">biografia</div>
+          </a>
+
+          <a class="iconBtn" href="romanticismo/romanticismo.html" title="Leopardi e Romanticismo">
+            <div class="glyph">R</div>
+            <div class="lbl">Romanticismo</div>
+            <div class="sub">relazione</div>
+          </a>
+
+          <a class="iconBtn" href="storico/storico.html" title="Pessimismo storico">
+            <div class="glyph">S</div>
+            <div class="lbl">Pessimismo</div>
+            <div class="sub">storico</div>
+          </a>
+
+          <a class="iconBtn" href="cosmico/cosmico.html" title="Pessimismo cosmico">
+            <div class="glyph">C</div>
+            <div class="lbl">Pessimismo</div>
+            <div class="sub">cosmico</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 2: lezione (intro.txt) -->
+      <section class="card">
+        <div class="cardHeader">
+          <div class="title">2) Lezione</div>
+          <div class="hint" id="lessonStatus">Caricamento...</div>
+        </div>
+        <div class="lessonBody">
+          <div class="scrollBox" role="region" aria-label="Testo lezione">
+            <pre id="lessonText">Caricamento di intro.txt...</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3: appunti -->
+      <section class="card notes">
+        <div class="cardHeader">
+          <div class="title">3) Appunti (salvataggio sul browser)</div>
+          <div class="hint">localStorage + download .txt</div>
+        </div>
+        <div class="notesBody">
+          <textarea id="notes" placeholder="Scrivi qui i tuoi appunti..."></textarea>
+          <div class="noteActions">
+            <button class="btn" id="saveNotes" type="button">Salva</button>
+            <button class="btn" id="downloadNotes" type="button">Scarica .txt</button>
+            <button class="btn" id="clearNotes" type="button">Svuota</button>
+          </div>
+          <div class="status" id="notesStatus">...</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modale: schema della pagina (immagine allegata) -->
+  <div id="overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.65); backdrop-filter:blur(8px); z-index:999; padding:18px;">
+    <div style="max-width:980px; margin:0 auto; height:100%; display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+        <div style="font-weight:900;">Schema (Home.png)</div>
+        <button class="btn" id="closeLayout" type="button">Chiudi</button>
+      </div>
+      <div class="card" style="flex:1; display:grid; place-items:center; padding:12px;">
+        <img src="assets/Home.png" alt="Schema home" style="max-width:100%; max-height:100%; border-radius:14px; border:1px solid rgba(255,255,255,.14);" />
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+  <script>
+    const overlay = document.getElementById('overlay');
+    document.getElementById('openLayout').addEventListener('click', () => overlay.style.display = 'block');
+    document.getElementById('closeLayout').addEventListener('click', () => overlay.style.display = 'none');
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.style.display = 'none'; });
+  </script>
+</body>
+</html>
