@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leopardi – Il pessimismo storico</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="home" href="index.html" aria-label="Home">HOME</a>
+    <div class="title">
+      <div class="kicker">Leopardi</div>
+      <h1>Il pessimismo storico</h1>
+    </div>
+    <div class="spacer"></div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel panel-left" aria-label="Mappa concettuale con zone sensibili">
+      <div class="mapShell" id="mapShell">
+        <img id="mapImg" src="assets/PessimismoStorico.PNG" alt="Mappa concettuale del pessimismo storico" />
+        <!-- Hotspots injected by JS -->
+      </div>
+
+      <div class="hint">
+        Clicca sulle aree evidenziate (in trasparenza) per aprire le risposte a destra.
+      </div>
+    </section>
+
+    <aside class="panel panel-right" aria-label="Risposte">
+      <div class="answerHeader">
+        <div class="badge" id="badge">Seleziona una domanda</div>
+        <div class="meta" id="meta">Zone sensibili sulla mappa</div>
+      </div>
+
+      <article class="answerBody" id="answerBody">
+        <p class="muted">
+          Qui comparirà il testo della risposta.  
+          Suggerimento: usa questa pagina in classe come “lavagna interattiva”: mappa a sinistra, spiegazione a destra.
+        </p>
+      </article>
+
+      <footer class="answerFooter">
+        <button class="btn" id="btnReset" type="button">Reset</button>
+        <button class="btn btnGhost" id="btnFocus" type="button">Evidenzia zona</button>
+      </footer>
+    </aside>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
