@@ -1,329 +1,204 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>La filosofia base: Meccanicismo e Sensismo</title>
-  <style>
-    :root{
-      --bg:#0f1115;
-      --panel:#151923;
-      --panel2:#101521;
-      --text:#e9ecf1;
-      --muted:#b9c2d3;
-      --border:rgba(255,255,255,.12);
-      --shadow:0 12px 28px rgba(0,0,0,.35);
-      --radius:18px;
-      --accent:#62a8ff;
-      --accent2:#7cffc9;
-      --warning:#ffd24d;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 800px at 18% 12%, rgba(98,168,255,.16), transparent 60%),
-        radial-gradient(900px 700px at 82% 26%, rgba(124,255,201,.10), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      min-height:100vh;
-      padding:18px;
-      display:flex;
-      justify-content:center;
-    }
-    .app{ width:min(1200px,100%); display:flex; flex-direction:column; gap:14px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La filosofia base – Meccanicismo e Sensismo</title>
 
-    header{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:14px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .brand{
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-      flex-wrap:wrap;
-      line-height:1.2;
-    }
-    .brand a{
-      color:var(--text);
-      text-decoration:none;
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-size:13px;
-      opacity:.92;
-      border-bottom:1px dashed rgba(255,255,255,.18);
-      padding-bottom:2px;
-    }
-    .brand a:hover{ opacity:1; border-bottom-color: rgba(98,168,255,.7); }
-    .brand .sep{ opacity:.35; }
-    .brand .title{
-      font-weight:900;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:13px;
-      opacity:.92;
-    }
-    .pill{
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color:var(--muted);
-      user-select:none;
-      white-space:nowrap;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0f1115;
+    color: #e9ecf1;
+  }
 
-    main{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      min-height:620px;
-      align-items:stretch;
-    }
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
+  header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    background: #151923;
+  }
 
-    /* LEFT: IMAGE */
-    .imgWrap{
-      padding:14px;
-      background:
-        radial-gradient(520px 320px at 30% 30%, rgba(255,210,77,.12), transparent 60%),
-        radial-gradient(520px 320px at 70% 70%, rgba(98,168,255,.10), transparent 60%),
-        var(--panel2);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    figure{
-      margin:0;
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px;
-      border-radius:calc(var(--radius) - 6px);
-      border:1px dashed rgba(255,255,255,.18);
-      background: rgba(0,0,0,.12);
-    }
-    figure img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      display:block;
-      border-radius:12px;
-    }
+  header a {
+    color: #62a8ff;
+    text-decoration: none;
+    font-weight: 600;
+  }
 
-    /* RIGHT: TEXT */
-    .textWrap{ padding:16px; display:flex; flex-direction:column; gap:12px; }
-    h1{
-      margin:0;
-      font-size:18px;
-      letter-spacing:.02em;
-    }
-    .sub{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.4;
-    }
-    .reader{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      border-radius: 14px;
-      padding:14px;
-      overflow:auto;
-      flex:1;
-      line-height:1.7;
-      color: rgba(255,255,255,.88);
-    }
-    .block{
-      margin:0 0 14px 0;
-      padding:12px 12px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: 14px;
-    }
-    .block h2{
-      margin:0 0 10px 0;
-      font-size:15px;
-      letter-spacing:.01em;
-    }
-    .label{
-      display:inline-block;
-      font-size:12px;
-      padding:2px 8px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.85);
-      margin-right:6px;
-      margin-bottom:8px;
-    }
-    .idea{
-      margin:0 0 10px 0;
-      padding:10px 12px;
-      border-left:4px solid rgba(98,168,255,.55);
-      background: rgba(98,168,255,.08);
-      border-radius: 12px;
-    }
-    ul{ margin:8px 0 0 18px; padding:0; }
-    li{ margin:6px 0; }
-    .conseq{
-      margin:10px 0 0 0;
-      padding:10px 12px;
-      border-left:4px solid rgba(124,255,201,.55);
-      background: rgba(124,255,201,.08);
-      border-radius:12px;
-    }
-    .linkage{
-      margin:0 0 14px 0;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-    }
-    .arrow{
-      margin:10px 0 0 0;
-      padding:10px 12px;
-      border-left:4px solid rgba(255,210,77,.65);
-      background: rgba(255,210,77,.08);
-      border-radius:12px;
-      font-weight:600;
-    }
-    blockquote{
-      margin:0;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px dashed rgba(255,255,255,.18);
-      background: rgba(255,255,255,.035);
-      color: rgba(255,255,255,.92);
-    }
-    blockquote p{ margin:0; }
-    .foot{
-      margin-top:10px;
-      color:rgba(255,255,255,.65);
-      font-size:12px;
-    }
+  header h1 {
+    margin: 10px 0 0;
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
 
-    @media (max-width: 980px){
-      main{ grid-template-columns:1fr; min-height:auto; }
-      .imgWrap{ min-height:360px; }
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .box {
+    background: #151923;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    overflow: hidden;
+  }
+
+  /* SEZIONE IMMAGINE */
+  .image-box {
+    display: flex;
+    align-items: flex-start; /* <-- CHIAVE: immagine in alto */
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .image-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  /* SEZIONE TESTO */
+  .text-box {
+    padding: 18px;
+    overflow-y: auto;
+    line-height: 1.65;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: #62a8ff;
+  }
+
+  h3 {
+    margin-top: 26px;
+    color: #7cffc9;
+  }
+
+  ul {
+    padding-left: 18px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  .consequence {
+    margin-top: 12px;
+    padding: 12px;
+    background: rgba(255,255,255,0.04);
+    border-left: 4px solid #7cffc9;
+    border-radius: 10px;
+  }
+
+  .link-box {
+    margin-top: 20px;
+    padding: 12px;
+    background: rgba(98,168,255,0.08);
+    border-left: 4px solid #62a8ff;
+    border-radius: 10px;
+  }
+
+  blockquote {
+    margin: 22px 0;
+    padding: 14px;
+    border-left: 4px dashed rgba(255,255,255,0.25);
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    main {
+      grid-template-columns: 1fr;
     }
-  </style>
+  }
+</style>
 </head>
+
 <body>
-  <div class="app">
-    <header>
-      <div class="brand">
-        <a href="storico.html" title="Torna a Pessimismo storico">← storico</a>
-        <span class="sep">—</span>
-        <span class="title">La filosofia base: Meccanicismo e Sensismo</span>
-      </div>
-      <div class="pill">Leopardi • Filosofia di base</div>
-    </header>
 
-    <main>
-      <!-- SINISTRA: IMMAGINE -->
-      <section class="panel imgWrap" aria-label="Immagine: filosofia base">
-        <figure>
-          <img src="assets/Filosofia-base.PNG" alt="Mappa concettuale: Filosofia base (meccanicismo e sensismo)">
-        </figure>
-      </section>
+<header>
+  <a href="storico.html">← Torna al pessimismo storico</a>
+  <h1>La filosofia base: meccanicismo e sensismo</h1>
+</header>
 
-      <!-- DESTRA: TESTO -->
-      <aside class="panel textWrap" aria-label="Testo: meccanicismo e sensismo">
-        <div>
-          <h1>La filosofia base: meccanicismo e sensismo</h1>
-          <p class="sub">Meccanicismo e sensismo sono i due pilastri concettuali che preparano il “pessimismo storico”: uno spiega <b>come</b> funziona il mondo, l’altro perché l’uomo <b>soffre</b>.</p>
-        </div>
+<main>
 
-        <div class="reader">
+  <!-- COLONNA SINISTRA: IMMAGINE -->
+  <section class="box image-box">
+    <img src="assets/Filosofia-base.PNG" alt="Mappa concettuale Meccanicismo e Sensismo">
+  </section>
 
-          <div class="block">
-            <span class="label">– Meccanicismo e Sensismo</span>
+  <!-- COLONNA DESTRA: TESTO -->
+  <section class="box text-box">
 
-            <h2>1. Il Meccanicismo – concetti chiave</h2>
+    <h2>Meccanicismo e Sensismo</h2>
 
-            <div class="idea">
-              <b>Idea di fondo</b><br>
-              Il mondo funziona come una <b>macchina naturale</b>, regolata da leggi necessarie e impersonali.
-            </div>
+    <h3>1. Il Meccanicismo – concetti chiave</h3>
 
-            <p><b>Punti essenziali</b></p>
-            <ul>
-              <li>La Natura <b>non ha intenzioni morali</b>: non è buona né cattiva.</li>
-              <li>Non esiste un fine ultimo o provvidenziale.</li>
-              <li>Tutto avviene secondo <b>cause ed effetti</b>.</li>
-              <li>Nascita e distruzione sono parti dello stesso processo.</li>
-            </ul>
+    <p><strong>Idea di fondo</strong><br>
+    Il mondo funziona come una <strong>macchina naturale</strong>, regolata da leggi necessarie e impersonali.</p>
 
-            <div class="conseq">
-              <b>Conseguenza per l’uomo</b><br>
-              L’uomo non è al centro dell’universo, ma un <b>ingranaggio</b> di un meccanismo più grande, indifferente al suo destino.
-            </div>
-          </div>
+    <p><strong>Punti essenziali</strong></p>
+    <ul>
+      <li>La Natura <strong>non ha intenzioni morali</strong>: non è buona né cattiva.</li>
+      <li>Non esiste un fine ultimo o provvidenziale.</li>
+      <li>Tutto avviene secondo <strong>cause ed effetti</strong>.</li>
+      <li>Nascita e distruzione sono parti dello stesso processo.</li>
+    </ul>
 
-          <div class="block">
-            <h2>2. Il Sensismo – concetti chiave</h2>
+    <div class="consequence">
+      <strong>Conseguenza per l’uomo</strong><br>
+      L’uomo non è al centro dell’universo, ma un <strong>ingranaggio</strong>
+      di un meccanismo più grande, indifferente al suo destino.
+    </div>
 
-            <div class="idea">
-              <b>Idea di fondo</b><br>
-              Tutto ciò che l’uomo conosce e sente deriva dai <b>sensi</b>.
-            </div>
+    <h3>2. Il Sensismo – concetti chiave</h3>
 
-            <p><b>Punti essenziali</b></p>
-            <ul>
-              <li>Le conoscenze non sono innate: nascono dall’esperienza sensibile.</li>
-              <li>Anche i sentimenti e i desideri hanno origine sensoriale.</li>
-              <li>I sensi generano nell’uomo un <b>desiderio di piacere infinito</b>.</li>
-              <li>La realtà, però, offre solo <b>piaceri limitati e temporanei</b>.</li>
-            </ul>
+    <p><strong>Idea di fondo</strong><br>
+    Tutto ciò che l’uomo conosce e sente deriva dai <strong>sensi</strong>.</p>
 
-            <div class="conseq">
-              <b>Conseguenza per l’uomo</b><br>
-              Nasce una frattura insanabile tra ciò che l’uomo <b>desidera</b> e ciò che può <b>ottenere</b>.
-            </div>
-          </div>
+    <p><strong>Punti essenziali</strong></p>
+    <ul>
+      <li>Le conoscenze non sono innate: nascono dall’esperienza sensibile.</li>
+      <li>Anche i sentimenti e i desideri hanno origine sensoriale.</li>
+      <li>I sensi generano un <strong>desiderio di piacere infinito</strong>.</li>
+      <li>La realtà offre solo <strong>piaceri limitati e temporanei</strong>.</li>
+    </ul>
 
-          <div class="linkage">
-            <h2 style="margin:0 0 8px 0; font-size:15px;">3. Nesso tra Meccanicismo e Sensismo</h2>
-            <ul>
-              <li>Il <b>meccanicismo</b> spiega <i>come</i> funziona il mondo.</li>
-              <li>Il <b>sensismo</b> spiega <i>perché</i> l’uomo soffre.</li>
-            </ul>
+    <div class="consequence">
+      <strong>Conseguenza per l’uomo</strong><br>
+      Nasce una frattura insanabile tra ciò che l’uomo <strong>desidera</strong>
+      e ciò che può <strong>ottenere</strong>.
+    </div>
 
-            <div class="arrow">
-              👉 Insieme mostrano che il dolore non è un errore, ma una <b>condizione strutturale dell’esistenza umana</b>.
-            </div>
-          </div>
+    <h3>3. Nesso tra Meccanicismo e Sensismo</h3>
 
-          <div class="block">
-            <h2 style="margin-top:0;">Frase-chiave da ricordare</h2>
-            <blockquote>
-              <p>«Il mondo è una macchina cieca, l’uomo un essere che sente: da qui nasce il dolore.»</p>
-            </blockquote>
-            <div class="foot">Suggerimento didattico: fai rileggere la frase e chiedi agli studenti di spiegare “macchina cieca” e “essere che sente” con un esempio.</div>
-          </div>
+    <ul>
+      <li>Il <strong>meccanicismo</strong> spiega <em>come</em> funziona il mondo.</li>
+      <li>Il <strong>sensismo</strong> spiega <em>perché</em> l’uomo soffre.</li>
+    </ul>
 
-        </div>
-      </aside>
-    </main>
-  </div>
+    <div class="link-box">
+      👉 Insieme mostrano che il dolore non è un errore,
+      ma una <strong>condizione strutturale dell’esistenza umana</strong>.
+    </div>
+
+    <blockquote>
+      «Il mondo è una macchina cieca, l’uomo un essere che sente:
+      da qui nasce il dolore.»
+    </blockquote>
+
+  </section>
+
+</main>
+
 </body>
 </html>
