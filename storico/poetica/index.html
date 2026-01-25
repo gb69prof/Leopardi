@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Poetica di Leopardi – vago e indefinito</title>
+<style>
+  :root{
+    --bg:#0f1115;
+    --panel:#151923;
+    --panel2:#101521;
+    --text:#e9ecf1;
+    --muted:#b9c2d3;
+    --border:rgba(255,255,255,.12);
+    --shadow:0 12px 28px rgba(0,0,0,.35);
+    --radius:18px;
+    --accent:#62a8ff;
+    --accent2:#7cffc9;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    background:
+      radial-gradient(1200px 800px at 18% 12%, rgba(98,168,255,.16), transparent 60%),
+      radial-gradient(900px 700px at 82% 26%, rgba(124,255,201,.10), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    padding:18px;
+    display:flex;
+    justify-content:center;
+  }
+  .app{width:min(1200px,100%); display:flex; flex-direction:column; gap:14px;}
+
+  header{
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:14px 16px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+  }
+  header a{
+    color:var(--accent);
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    opacity:.95;
+  }
+  header a:hover{text-decoration:underline}
+  header h1{
+    margin:8px 0 0;
+    font-size:20px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .sub{margin:6px 0 0; color:var(--muted); font-size:13px; max-width:62ch;}
+  .pill{
+    border:1px solid var(--border);
+    background: rgba(255,255,255,.04);
+    padding:8px 10px;
+    border-radius:999px;
+    font-size:12px;
+    color:var(--muted);
+    white-space:nowrap;
+    user-select:none;
+  }
+
+  main{display:grid; grid-template-columns:1fr 1.25fr; gap:14px; align-items:stretch;}
+  .panel{
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+
+  .imageBox{
+    padding:12px;
+    background:
+      radial-gradient(420px 260px at 30% 30%, rgba(98,168,255,.14), transparent 60%),
+      radial-gradient(480px 320px at 70% 60%, rgba(124,255,201,.10), transparent 60%),
+      var(--panel2);
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:12px;
+    min-height:520px;
+  }
+  .imageBox img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.10);
+    background: rgba(0,0,0,.12);
+  }
+  .caption{
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.35;
+    padding:0 2px;
+  }
+
+  .textBox{padding:16px;}
+  .reader{
+    border:1px solid rgba(255,255,255,.10);
+    background: rgba(0,0,0,.18);
+    border-radius:14px;
+    padding:14px;
+    overflow:auto;
+    max-height: calc(100vh - 190px);
+    line-height:1.68;
+  }
+  .lead{
+    margin:0 0 12px 0;
+    padding:12px 12px;
+    border-left:4px solid rgba(98,168,255,.6);
+    background: rgba(98,168,255,.08);
+    border-radius: 12px;
+  }
+  .lead .title{font-weight:900; letter-spacing:.02em;}
+
+  .quote{
+    margin:12px 0 0;
+    padding:12px;
+    border:1px dashed rgba(255,255,255,.18);
+    border-radius:14px;
+    background: rgba(0,0,0,.20);
+  }
+
+  .section{
+    margin:14px 0 0 0;
+    padding:12px 12px;
+    border:1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.03);
+    border-radius: 14px;
+  }
+  .section h3{margin:0 0 8px 0; font-size:14px; color: var(--accent2);}
+  .section h4{margin:12px 0 6px; font-size:13px; color: var(--accent);}
+  .section p{margin:8px 0; color: rgba(255,255,255,.88);}
+  ul{margin:8px 0 0; padding-left:18px;}
+  li{margin:6px 0; color: rgba(255,255,255,.88);}
+
+  .tag{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.04);
+    color: var(--muted);
+    font-size:12px;
+    margin: 8px 6px 0 0;
+  }
+
+  table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    margin-top:10px;
+    overflow:hidden;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.10);
+  }
+  thead th{
+    background: rgba(98,168,255,.10);
+    color: rgba(255,255,255,.92);
+    text-align:left;
+    padding:10px;
+    font-size:12.5px;
+  }
+  tbody td{
+    background: rgba(0,0,0,.16);
+    color: rgba(255,255,255,.86);
+    padding:10px;
+    vertical-align:top;
+    font-size:13px;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  @media (max-width: 980px){
+    main{grid-template-columns:1fr;}
+    .imageBox{min-height:auto;}
+    .reader{max-height:none;}
+  }
+</style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <a href="storico.html">← Torna al pessimismo storico</a>
+        <h1>POETICA – VAGO E INDEFINITO</h1>
+        <div class="sub">Teoria poetica leopardiana: vago, indefinito, visione e suono, rimembranza.</div>
+      </div>
+      <div class="pill">Lezione</div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="imageBox">
+          <img src="assets/TeoriaVisioneSuono.png" alt="Schema: visione interrotta e suono vago (limite → immaginazione).">
+          <div class="caption">Schema: visione interrotta e suono vago (limite → immaginazione).</div>
+
+          <img src="assets/Idillio.png" alt="Idillio greco e idillio leopardiano.">
+          <div class="caption">Idillio: confronto tra modello greco e idillio leopardiano.</div>
+        </div>
+      </section>
+
+      <section class="panel textBox">
+        <div class="reader">
+
+          <p class="lead">
+            <span class="title">La poetica di Giacomo Leopardi</span><br>
+            <i>«Solo ciò che non si vede chiaramente può farci immaginare l’infinito.»</i>
+          </p>
+
+          <div class="section">
+            <h3>1. Che cos'è la poetica per Leopardi?</h3>
+            <p>La poetica di Leopardi è una forma di pensiero che diventa poesia. È un modo per esprimere il dolore, la memoria, l’illusione perduta attraverso immagini, suoni, silenzi. Non nasce per abbellire il mondo, ma per guardarlo con verità e insieme con immaginazione.</p>
+          </div>
+
+          <div class="section">
+            <h3>2. I tre principi fondamentali</h3>
+
+            <h4>a) Il vago e l’indefinito</h4>
+            <p>Leopardi ritiene che la poesia autentica nasca da ciò che è impreciso, lontano, sfumato. Quando qualcosa non è definito, la mente si attiva e immagina. E immaginare, per lui, è l’unico modo di avvicinarsi al piacere.</p>
+            <p><b>Esempi:</b></p>
+            <ul>
+              <li>una siepe che nasconde l’orizzonte</li>
+              <li>un canto che si allontana</li>
+              <li>una figura che si perde nella nebbia</li>
+            </ul>
+
+            <h4>b) La visione e il suono</h4>
+            <p>Poesia non è solo contenuto, ma anche percezione sensoriale. Se vedo tutto chiaramente, l’immaginazione si blocca. Se vedo a metà, sogno. Così per il suono: un rumore netto non evoca nulla, un suono vago accende il ricordo.</p>
+            <div class="quote">«La vista incompleta e i suoni lontani ci permettono di varcare i confini del reale.»</div>
+
+            <h4>c) La rimembranza</h4>
+            <p>La poesia nasce anche dal ricordo di quando l’uomo era ancora capace di sognare. Per Leopardi, la memoria dell’infanzia è il luogo poetico per eccellenza. La poesia è ritorno al tempo in cui l’illusione era ancora possibile.</p>
+          </div>
+
+          <div class="section">
+            <h3>3. Le forme usate da Leopardi</h3>
+            <ul>
+              <li><b>Idillio</b>: breve poesia lirica, spesso immersa nella natura e nella riflessione intima (<i>L’infinito</i>, <i>Alla luna</i>).</li>
+              <li><b>Canto filosofico</b>: poesia più lunga e riflessiva, con toni epici e morali (<i>La ginestra</i>).</li>
+              <li><b>Dialogo poetico in prosa</b>: forma filosofica e teatrale delle <i>Operette morali</i>, dove la poesia entra nella riflessione.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>4. Lo stile</h3>
+            <ul>
+              <li>Lessico semplice ma nobile.</li>
+              <li>Uso costante di immagini vaghe, sfumate.</li>
+              <li>Ritmo musicale, con enjambements e allitterazioni.</li>
+              <li>Espressione indiretta: non dice, suggerisce.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h3>5. Poesia come forma di pensiero</h3>
+            <p>La poesia leopardiana non è evasione, non è sogno facile. È una riflessione profonda sul destino dell’uomo, espressa in forma lirica. Leopardi pensa con immagini, sente con parole. Ogni verso è filosofia che vibra.</p>
+          </div>
+
+          <div class="section">
+            <h3>Conclusione didattica</h3>
+            <p>La poetica di Leopardi è una poetica del limite e della grandezza insieme: il limite umano che ci condanna al dolore, e la grandezza dell’immaginazione che ci permette ancora di vivere poeticamente. È una poesia che non consola, ma che accende la coscienza.</p>
+            <span class="tag">Slogan: «L’immaginazione è l’unico infinito che l’uomo può abitare.»</span>
+          </div>
+
+          <div class="section">
+            <h3>La poetica del vago e dell’indefinito – esempi</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Principio poetico</th>
+                  <th>Poesia</th>
+                  <th>Versi di riferimento</th>
+                  <th>Spiegazione</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Visione interrotta</b></td>
+                  <td>L’infinito</td>
+                  <td>«E questa siepe, che da tanta parte / dell’ultimo orizzonte il guardo esclude»</td>
+                  <td>La siepe blocca lo sguardo e stimola l’immaginazione verso lo spazio infinito.</td>
+                </tr>
+                <tr>
+                  <td><b>Suono vago</b></td>
+                  <td>L’infinito</td>
+                  <td>«E come il vento / odo stormir tra queste piante»</td>
+                  <td>Il fruscio del vento non è nitido, evoca uno spazio senza tempo.</td>
+                </tr>
+                <tr>
+                  <td><b>Suggestione del paesaggio</b></td>
+                  <td>La sera del dì di festa</td>
+                  <td>«All’apparir del giorno / il sol che nasce, e in oriente appare»</td>
+                  <td>Il paesaggio al crepuscolo, tra luci morenti e silenzio, evoca sogno e memoria.</td>
+                </tr>
+                <tr>
+                  <td><b>Indefinitezza sonora</b></td>
+                  <td>Alla luna</td>
+                  <td>«Or posi, e l’assonnato / spirto in quel silenzio s’abbandona»</td>
+                  <td>Il silenzio notturno e la luce lunare sospendono il tempo e attivano il ricordo.</td>
+                </tr>
+                <tr>
+                  <td><b>Presenza sfumata</b></td>
+                  <td>Il passero solitario</td>
+                  <td>«Tutta per l’aria azzurra / suona e si perde il canto»</td>
+                  <td>Il canto che si perde nell’aria è esempio di suono non definito e poetico.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="section">
+            <h3>Saperi irrinunciabili</h3>
+            <ul>
+              <li><b>La poetica nasce da una filosofia</b>: la poesia leopardiana è espressione del pensiero; si fonda sul sensismo e sulla necessità dell’immaginazione.</li>
+              <li><b>Il vago e l’indefinito</b>: ciò che non è perfettamente visibile o udibile accende la fantasia e permette l’esperienza dell’infinito.</li>
+              <li><b>Teoria della visione e del suono</b>: vista ostacolata e suoni lontani attivano l’immaginazione.</li>
+              <li><b>La rimembranza</b>: la memoria dell’infanzia è fonte di poesia.</li>
+              <li><b>Natura madre / matrigna</b>: prima consola con illusioni, poi appare crudele e generatrice di dolore.</li>
+              <li><b>Forme poetiche principali</b>: idilli, grandi canti, prosa poetica.</li>
+              <li><b>Poesia come pensiero sensibile</b>: sentimento e ragione fusi; ogni verso è riflessione lucida e vibrante.</li>
+            </ul>
+            <div class="quote"><b>Frase-chiave:</b> «La poesia nasce dove i sensi falliscono e l’immaginazione comincia.»</div>
+          </div>
+
+          <div class="section">
+            <h3>Vocabolario essenziale</h3>
+            <ul>
+              <li><b>Poetica</b>: idee e principi che guidano l’autore nella creazione poetica.</li>
+              <li><b>Vago</b>: ciò che non è definito; stimola l’immaginazione.</li>
+              <li><b>Indefinito</b>: ciò che non ha confini chiari; evoca l’infinito.</li>
+              <li><b>Rimembranza</b>: ricordo poetico del passato, soprattutto dell’infanzia.</li>
+              <li><b>Teoria della visione</b>: la vista parziale attiva l’immaginazione.</li>
+              <li><b>Teoria del suono</b>: i suoni vaghi (vento, fruscii, echi) evocano immagini poetiche.</li>
+              <li><b>Idillio</b>: forma poetica breve, intima e contemplativa.</li>
+              <li><b>Sensismo</b>: teoria per cui tutto deriva dai sensi; fonda la centralità dell’immaginazione.</li>
+              <li><b>Illusione</b>: visione non vera ma necessaria per sopportare la realtà.</li>
+              <li><b>Natura madre / matrigna</b>: doppia immagine della Natura nelle fasi del pensiero leopardiano.</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
