@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La Ginestra – Titanismo e social catena</title>
+<style>
+:root {
+  --bg:#0f1115;
+  --panel:#151923;
+  --panel2:#101521;
+  --text:#e9ecf1;
+  --muted:#b9c2d3;
+  --border:rgba(255,255,255,.12);
+  --shadow:0 12px 28px rgba(0,0,0,.35);
+  --radius:18px;
+  --accent:#62a8ff;
+  --accent2:#7cffc9;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(1200px 800px at 18% 12%, rgba(98,168,255,.16), transparent 60%),
+              radial-gradient(900px 700px at 82% 26%, rgba(124,255,201,.10), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding:18px;
+  display:flex;
+  justify-content:center;
+}
+.app{width:min(1200px,100%);display:flex;flex-direction:column;gap:14px}
+header{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.nav a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:650;
+  margin-right:14px;
+  font-size:13px;
+}
+.nav a:hover{text-decoration:underline}
+.title{
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:14px;
+  white-space:nowrap;
+}
+main{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:14px;
+}
+.panel{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+#stage{padding:12px;background:var(--panel2);}
+#stageInner{
+  border-radius: calc(var(--radius) - 6px);
+  border:1px dashed rgba(255,255,255,.18);
+  overflow:hidden;
+  background: rgba(0,0,0,.12);
+}
+#mainImage{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  background:#000;
+  cursor:pointer;
+}
+.iconBar{
+  display:flex;
+  gap:10px;
+  padding:12px;
+  border-top:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.18);
+}
+.iconBtn{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color:var(--text);
+  cursor:pointer;
+  font-weight:800;
+}
+.iconBtn.active{
+  border-color: rgba(98,168,255,.45);
+  background: rgba(98,168,255,.12);
+}
+.textWrap{padding:16px}
+.reader{
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  border-radius:14px;
+  padding:14px;
+  overflow:auto;
+  line-height:1.65;
+  max-height: calc(100vh - 170px);
+}
+.lead{
+  padding:12px;
+  border-left:4px solid var(--accent);
+  background: rgba(98,168,255,.08);
+  border-radius:12px;
+  margin-bottom:12px;
+}
+.muted{color:var(--muted)}
+.section{
+  margin-top:14px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius:14px;
+}
+.section h3{margin:0 0 8px 0; color: var(--accent2);}
+blockquote{
+  margin:10px 0 0;
+  padding:12px;
+  border-left:4px dashed rgba(255,255,255,.22);
+  background: rgba(0,0,0,.22);
+  border-radius:12px;
+  font-style: italic;
+}
+@media (max-width:900px){
+  main{grid-template-columns:1fr;}
+  .reader{max-height:none;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="nav">
+      <a href="../index.html">← Home</a>
+      <a href="../cosmico.html">← Pessimismo cosmico</a>
+    </div>
+    <div class="title">La Ginestra</div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div id="stage">
+        <div id="stageInner">
+          <img id="mainImage" src="assets/vesuvio.jpg" alt="Vesuvio (immagine iniziale)">
+        </div>
+      </div>
+      <div class="iconBar">
+        <button class="iconBtn" data-img="assets/schema1.png">Schema 1</button>
+        <button class="iconBtn" data-img="assets/schema2.png">Schema 2</button>
+        <button class="iconBtn" data-img="assets/schema3.png">Schema 3</button>
+      </div>
+    </section>
+
+    <section class="panel textWrap">
+      <div class="reader">
+        <div class='lead'><b>Lezione: La Ginestra o il fiore del deserto</b><br><span class='muted'>Sezione: Il titanismo leopardiano – La dignità della solidarietà</span></div>
+<div class='section'><h3>Contesto dell’opera</h3><p>Scritta nel 1836, pochi anni prima della morte, La Ginestra è l’ultimo grande canto leopardiano. Nasce durante il soggiorno a Torre del Greco, ai piedi del Vesuvio, luogo che diventa simbolo stesso della forza cieca e distruttrice della Natura. Qui Leopardi non si rifugia più nell’illusione, ma afferma una nuova forma di eroismo: la solidarietà tra gli uomini di fronte all’insensatezza del mondo.</p></div>
+<div class='section'><h3>La Natura: forza cieca e distruttrice</h3><p>La Natura, come già nel Dialogo della Natura e di un Islandese, appare indifferente al destino umano. Anzi, è rappresentata con forza violenta:</p><blockquote>“ella con lieve moto / in un momento annulla / in parte, e può con moti poco men lievi / annichilare in un punto”</blockquote><p>Questa consapevolezza è definitiva: l’uomo non è al centro dell’universo, ma un frammento fragile, esposto al caso.</p></div>
+<div class='section'><h3>La ginestra: simbolo di resistenza e verità</h3><p>Il fiore che dà nome al canto cresce “su l’arida schiena / del formidabil monte sterminator Vesevo”. Non è profumato come la rosa né fiero come il lauro: è umile, ma tenace. La ginestra diventa emblema dell’uomo saggio, che non si illude, ma nemmeno si piega:</p><blockquote>“e tu, umile fiore, / esser vuoi compagna / dell’uomo che non piega”</blockquote></div>
+<div class='section'><h3>Contro l’arroganza: il rifiuto del progresso cieco</h3><p>Leopardi attacca la presunzione degli uomini moderni, che si credono padroni del mondo grazie alla scienza e al progresso:</p><blockquote>“e quell’orror che primo / contra l’empia natura / strinse i mortali in social catena / fu in pria comune, or può dell’uom pietade / partorir sol la scienza”</blockquote><p>La scienza non salva, ma può servire a conoscere la verità. È l’illusione della superiorità umana che Leopardi denuncia con ferocia.</p></div>
+<div class='section'><h3>La nuova etica: la “social catena”</h3><p>La sola risposta possibile alla crudeltà della Natura è la solidarietà tra gli uomini, la “social catena”, un legame non basato sull’illusione, ma sulla verità condivisa. Solo chi non si illude può essere veramente umano:</p><blockquote>“Nobil natura è quella / che a sollevar s’ardisce / gli occhi mortali incontra / al comun fato”</blockquote></div>
+<div class='section'><h3>Il titanismo leopardiano</h3><p>Non è ribellione prometeica, ma una forma più alta di eroismo: affrontare la verità senza veli, senza illusioni, e non piegarsi. In questo senso La Ginestra rappresenta il culmine della coscienza leopardiana: è la poesia della resistenza morale.</p></div>
+<div class='section'><h3>Conclusione: verità, fragilità, dignità</h3><p>La Ginestra ci lascia una visione dura ma profondamente umana: l’uomo non può vincere la Natura, ma può darsi legge morale nella fratellanza tra simili. E la poesia è lo spazio in cui questa dignità può ancora fiorire.</p></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  const img = document.getElementById('mainImage');
+  const buttons = Array.from(document.querySelectorAll('.iconBtn'));
+  const initial = 'assets/vesuvio.jpg';
+
+  function setActive(btn){
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      img.src = btn.getAttribute('data-img');
+      img.alt = btn.textContent.trim();
+      setActive(btn);
+    });
+  });
+
+  // Click sull’immagine: torna al Vesuvio
+  img.addEventListener('click', ()=>{
+    img.src = initial;
+    img.alt = 'Vesuvio (immagine iniziale)';
+    buttons.forEach(b=>b.classList.remove('active'));
+  });
+})();
+</script>
+</body>
+</html>
