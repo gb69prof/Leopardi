@@ -47,12 +47,16 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:12px;
   }
-  .brand{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
-  .brand .home{font-weight:900; letter-spacing:.08em; text-transform:uppercase; font-size:14px; opacity:.95;}
-  .brand .sep{opacity:.35}
-  .brand .title{font-weight:900; letter-spacing:.06em; text-transform:uppercase; font-size:14px; opacity:.9;}
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:14px;
+  }
   .pill{
     border:1px solid var(--border);
     background: rgba(255,255,255,.04);
@@ -60,14 +64,12 @@
     border-radius:999px;
     font-size:12px;
     color:var(--muted);
-    user-select:none;
   }
 
   main{
     display:grid;
     grid-template-columns:1.1fr .9fr;
     gap:14px;
-    align-items:stretch;
     min-height:560px;
   }
 
@@ -83,10 +85,7 @@
   #stage{
     position:relative;
     aspect-ratio:16/10;
-    background:
-      radial-gradient(420px 260px at 30% 30%, rgba(98,168,255,.16), transparent 60%),
-      radial-gradient(480px 320px at 70% 60%, rgba(124,255,201,.10), transparent 60%),
-      var(--panel2);
+    background: var(--panel2);
     padding:12px;
     display:flex;
     align-items:center;
@@ -108,20 +107,15 @@
     height:100%;
     border:0;
   }
-  /* immagine subito visibile, intera */
   #stage img{
     object-fit:contain;
-    display:block;
     cursor:pointer;
-    background: rgba(0,0,0,.10);
+    background: rgba(0,0,0,.1);
   }
-  /* iframe nascosto finché non clicchi */
   #stage iframe{
     display:none;
     background:#000;
   }
-
-  /* pulsante ritorno (solo durante video) */
   #backBtn{
     position:absolute;
     top:12px;
@@ -135,270 +129,186 @@
     color:#fff;
     font-size:12px;
     cursor:pointer;
-    backdrop-filter: blur(6px);
   }
-  #backBtn:hover{ background: rgba(98,168,255,.22); }
 
-  /* SEZIONE 2 (testo) */
-  .textWrap{padding:16px; height:100%; display:flex; flex-direction:column; gap:12px;}
-  .textWrap h2{
-    margin:0;
-    font-size:14px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    opacity:.92;
+  /* SEZIONE 2 */
+  .textWrap{
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
   }
   .reader{
-    border:1px solid rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.1);
     background: rgba(0,0,0,.18);
-    border-radius: 14px;
+    border-radius:14px;
     padding:14px;
     overflow:auto;
-    flex:1;
     line-height:1.65;
-    color: rgba(255,255,255,.88);
   }
   .lead{
-    margin:0 0 12px 0;
-    padding:12px 12px;
-    border-left:4px solid rgba(98,168,255,.6);
+    padding:12px;
+    border-left:4px solid var(--accent);
     background: rgba(98,168,255,.08);
-    border-radius: 12px;
-  }
-  .tag{
-    display:inline-block;
-    font-size:12px;
-    padding:2px 8px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.12);
-    background: rgba(255,255,255,.04);
-    color: rgba(255,255,255,.85);
-    margin-right:6px;
+    border-radius:12px;
   }
   .section{
-    margin:14px 0 0 0;
-    padding:12px 12px;
-    border:1px solid rgba(255,255,255,.10);
+    margin-top:14px;
+    padding:12px;
+    border:1px solid rgba(255,255,255,.1);
     background: rgba(255,255,255,.03);
-    border-radius: 14px;
+    border-radius:14px;
   }
-  .section h3{
-    margin:0 0 8px 0;
-    font-size:14px;
-    letter-spacing:.02em;
-  }
-  ul{margin:8px 0 0 18px; padding:0}
-  li{margin:6px 0}
   .arrow{
-    margin:10px 0 0 0;
-    padding:10px 12px;
-    border-radius:12px;
+    margin-top:10px;
+    padding:10px;
     background: rgba(124,255,201,.08);
-    border-left:4px solid rgba(124,255,201,.55);
+    border-left:4px solid var(--accent2);
+    border-radius:12px;
   }
   .quote{
-    margin:10px 0 0 0;
-    padding:12px 12px;
-    border-radius: 14px;
-    background: rgba(255,255,255,.035);
+    margin-top:10px;
+    padding:12px;
     border:1px dashed rgba(255,255,255,.16);
+    border-radius:14px;
   }
   .concl{
-    margin:14px 0 0 0;
-    padding:12px 12px;
-    border-radius: 14px;
-    background: rgba(255,255,255,.02);
+    margin-top:14px;
+    padding:12px;
     border:1px solid rgba(98,168,255,.18);
+    border-radius:14px;
   }
 
-  @media (max-width: 920px){
+  @media (max-width:900px){
     main{grid-template-columns:1fr;}
-    #stage{aspect-ratio:16/11;}
   }
 </style>
 </head>
 
 <body>
-  <div class="app">
-    <header>
-      <div class="brand">
-        <div class="home">HOME</div>
-        <div class="sep">—</div>
-        <div class="title">PESSIMISMO STORICO</div>
-      </div>
-      <div class="pill">Lezione completa</div>
-    </header>
+<div class="app">
+<header>
+  <div class="brand">HOME — PESSIMISMO STORICO</div>
+  <div class="pill">Lezione completa</div>
+</header>
 
-    <main>
-      <!-- SEZIONE 1 -->
-      <section class="panel" aria-label="Sezione 1: immagine / video">
-        <div id="stage">
-          <div id="stageInner">
-            <button id="backBtn" type="button">↩ Torna all’immagine</button>
-
-            <img id="img"
-                 src="assets/Leopardi-storico1.png"
-                 alt="Leopardi – pessimismo storico">
-
-            <iframe id="video"
-              src="https://app.heygen.com/embedded-player/20e9ff9540d34cd5ab5bc0c6c69c48b8"
-              title="HeyGen video player"
-              allow="encrypted-media; fullscreen;"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEZIONE 2 -->
-      <aside class="panel textWrap" aria-label="Sezione 2: lezione">
-        <h2>Lezione</h2>
-
-        <div class="reader">
-          <p class="lead">
-            <span class="tag">Lezione introduttiva</span>
-            <b>Il pessimismo storico di Leopardi</b><br>
-            Parlare di pessimismo storico non significa partire dalla poesia, ma arrivarci.
-            Prima c’è la filosofia, poi l’immagine del mondo, infine l’arte come traduzione sensibile
-            di un pensiero lucido e doloroso. In Giacomo Leopardi il percorso è netto, coerente,
-            senza scorciatoie consolatorie.
-          </p>
-
-          <div class="section">
-            <h3>1. La filosofia di base: meccanicismo e sensismo</h3>
-            <p><b>Leopardi non nasce poeta “di sentimento”. Nasce pensatore moderno.</b></p>
-
-            <p><span class="tag">🔧 Meccanicismo</span><br>
-              Il mondo non è guidato da un fine morale, da Dio o dalla Provvidenza.
-              Funziona come una macchina naturale: cause ed effetti, nascita e distruzione, senza intenzione.
-            </p>
-
-            <p class="tag" style="margin-top:6px;">La Natura</p>
-            <ul>
-              <li>non pensa</li>
-              <li>non vuole il bene dell’uomo</li>
-              <li>non ha scopi etici</li>
-            </ul>
-
-            <p style="margin-top:12px;">
-              <span class="tag">👁️ Sensismo</span><br>
-              Tutto ciò che l’uomo conosce e desidera nasce dai sensi.
-              Ma qui si apre la frattura decisiva:
-              i sensi generano desideri infiniti, mentre la realtà offre piaceri finiti.
-            </p>
-
-            <div class="arrow">
-              <b>👉 Da questa sproporzione nasce il dolore.</b><br>
-              Non soffriamo perché vogliamo troppo.<br>
-              Soffriamo perché siamo fatti così.
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>2. Dalla filosofia all’immagine del mondo: il pessimismo storico</h3>
-
-            <p><span class="tag">🌿 L’idea centrale</span><br>
-              L’uomo non è sempre stato infelice.
-              Un tempo – nell’infanzia dell’umanità – viveva immerso nelle illusioni,
-              vicino alla Natura, capace di immaginare.
-              La storia, il progresso, la ragione hanno distrutto quelle illusioni.
-            </p>
-
-            <ul>
-              <li><b>gli antichi</b> → immaginavano, speravano, sognavano</li>
-              <li><b>i moderni</b> → sanno, analizzano, ma non credono più</li>
-            </ul>
-
-            <p style="margin-top:10px;">
-              La civiltà ha tolto all’uomo l’unico strumento che lo rendeva felice: l’immaginazione.
-            </p>
-
-            <div class="arrow">
-              <b>👉 La colpa non è ancora della Natura, ma della storia.</b>
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>3. Dalla visione del mondo all’arte: la poetica del vago e dell’indefinito</h3>
-
-            <p>
-              Leopardi non si ferma alla diagnosi.
-              Trasforma il suo pensiero in poesia consapevole.
-              Se la ragione distrugge le illusioni, allora la poesia deve ricrearle, senza mentire.
-            </p>
-
-            <p><b>Nasce così la poetica del vago e dell’indefinito:</b></p>
-            <ul>
-              <li>ciò che è limitato (una siepe, un suono lontano)</li>
-              <li>accende l’immaginazione</li>
-              <li>e permette di intuire l’infinito</li>
-            </ul>
-
-            <div class="quote">
-              <b>La poesia non dice tutto.</b>
-              Lascia mancare qualcosa, e in quello spazio nasce il pensiero.
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>4. L’Infinito: esempio perfetto di pensiero che diventa arte</h3>
-
-            <p>In <i>L’infinito</i> c’è tutto Leopardi del pessimismo storico.</p>
-
-            <ul>
-              <li>una siepe blocca la vista</li>
-              <li>il limite diventa occasione</li>
-              <li>l’immaginazione crea “interminati spazi”</li>
-            </ul>
-
-            <p>
-              Il silenzio infinito viene confrontato con un suono reale, il vento.
-              Il tempo si apre: passato, presente, eterno.
-            </p>
-
-            <div class="quote">
-              <b>Finale decisivo:</b> “E il naufragar m’è dolce in questo mare.”<br>
-              Non è felicità vera. È l’ultima illusione possibile, consapevole, lucida, momentanea.
-            </div>
-
-            <div class="arrow">
-              <b>👉 Qui Leopardi non nega il dolore.</b><br>
-              <b>👉 Lo sospende, per un attimo, attraverso l’arte.</b>
-            </div>
-          </div>
-
-          <div class="concl">
-            <h3 style="margin:0 0 8px 0;">Conclusione didattica</h3>
-            <p style="margin:0;">
-              Il pessimismo storico non è depressione. È coscienza.
-              Leopardi ci mostra: un mondo meccanico, un uomo sensibile,
-              una storia che distrugge le illusioni e un’arte che prova a salvarne almeno l’eco.
-              <b>La poesia non consola. Ma insegna a guardare senza mentire.</b>
-            </p>
-          </div>
-        </div>
-      </aside>
-    </main>
+<main>
+<section class="panel">
+  <div id="stage">
+    <div id="stageInner">
+      <button id="backBtn">↩ Torna all’immagine</button>
+      <img id="img" src="assets/Leopardi-storico1.png" alt="Leopardi pessimismo storico">
+      <iframe id="video"
+        src="https://www.youtube.com/embed/MFXUW2hhtSA?si=ffqV7l5q01q_VdNV"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
   </div>
+</section>
+
+<aside class="panel textWrap">
+<div class="reader">
+
+<div class="lead">
+<b>Lezione introduttiva – Il pessimismo storico di Leopardi</b><br>
+Parlare di pessimismo storico non significa partire dalla poesia, ma arrivarci.
+Prima c’è la filosofia, poi l’immagine del mondo, infine l’arte come traduzione sensibile
+di un pensiero lucido e doloroso. In Giacomo Leopardi il percorso è netto, coerente,
+senza scorciatoie consolatorie.
+</div>
+
+<div class="section">
+<h3>1. La filosofia di base: meccanicismo e sensismo</h3>
+<p><b>Leopardi non nasce poeta “di sentimento”. Nasce pensatore moderno.</b></p>
+<p><b>Meccanicismo.</b> Il mondo non è guidato da un fine morale, da Dio o dalla Provvidenza.
+Funziona come una macchina naturale: cause ed effetti, nascita e distruzione, senza intenzione.</p>
+<ul>
+<li>la Natura non pensa</li>
+<li>non vuole il bene dell’uomo</li>
+<li>non ha scopi etici</li>
+</ul>
+<p><b>Sensismo.</b> Tutto ciò che l’uomo conosce e desidera nasce dai sensi.
+Ma i sensi generano desideri infiniti, mentre la realtà offre piaceri finiti.</p>
+<div class="arrow">
+<b>Da questa sproporzione nasce il dolore.</b><br>
+Non soffriamo perché vogliamo troppo.<br>
+Soffriamo perché siamo fatti così.
+</div>
+</div>
+
+<div class="section">
+<h3>2. Dalla filosofia all’immagine del mondo: il pessimismo storico</h3>
+<p>L’uomo non è sempre stato infelice.
+Nell’infanzia dell’umanità viveva immerso nelle illusioni, vicino alla Natura,
+capace di immaginare. La storia, il progresso, la ragione hanno distrutto quelle illusioni.</p>
+<ul>
+<li><b>Antichi</b>: immaginano, sperano, sognano</li>
+<li><b>Moderni</b>: sanno, analizzano, ma non credono più</li>
+</ul>
+<div class="arrow">
+<b>La colpa non è ancora della Natura, ma della storia.</b>
+</div>
+</div>
+
+<div class="section">
+<h3>3. Dalla visione del mondo all’arte: la poetica del vago e dell’indefinito</h3>
+<p>Se la ragione distrugge le illusioni, la poesia deve ricrearle senza mentire.
+Nasce la poetica del vago e dell’indefinito.</p>
+<ul>
+<li>un limite accende l’immaginazione</li>
+<li>l’indefinito apre all’infinito</li>
+</ul>
+<div class="quote">
+La poesia non dice tutto. Lascia mancare qualcosa,
+e in quello spazio nasce il pensiero.
+</div>
+</div>
+
+<div class="section">
+<h3>4. L’Infinito</h3>
+<p>Una siepe blocca la vista.
+Il limite diventa occasione.
+Il vento rompe il silenzio infinito.
+Il tempo si apre all’eterno.</p>
+<div class="quote">
+“E il naufragar m’è dolce in questo mare.”
+</div>
+<div class="arrow">
+Leopardi non nega il dolore: lo sospende per un attimo attraverso l’arte.
+</div>
+</div>
+
+<div class="concl">
+<b>Conclusione didattica.</b><br>
+Il pessimismo storico non è depressione, ma coscienza.
+La poesia non consola: insegna a guardare senza mentire.
+</div>
+
+</div>
+</aside>
+</main>
+</div>
 
 <script>
-  const img = document.getElementById('img');
-  const vid = document.getElementById('video');
-  const backBtn = document.getElementById('backBtn');
+const img = document.getElementById('img');
+const vid = document.getElementById('video');
+const backBtn = document.getElementById('backBtn');
 
-  // Click immagine -> mostra video intero nel riquadro + pulsante ritorno
-  img.addEventListener('click', () => {
-    img.style.display = 'none';
-    vid.style.display = 'block';
-    backBtn.style.display = 'block';
-  });
+img.addEventListener('click', () => {
+  img.style.display = 'none';
+  vid.style.display = 'block';
+  backBtn.style.display = 'block';
+});
 
-  // Torna all'immagine
-  backBtn.addEventListener('click', () => {
-    vid.style.display = 'none';
-    backBtn.style.display = 'none';
-    img.style.display = 'block';
-  });
+backBtn.addEventListener('click', () => {
+  vid.src = vid.src; // reset video
+  vid.style.display = 'none';
+  backBtn.style.display = 'none';
+  img.style.display = 'block';
+});
 </script>
 </body>
 </html>
