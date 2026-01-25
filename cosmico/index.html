@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leopardi – Pessimismo cosmico</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <a class="back" href="../index.html">← Torna alla home del progetto Leopardi</a>
+        <h1>Il pessimismo cosmico</h1>
+      </div>
+      <div class="pill">Mappa interattiva + mini‑lezioni</div>
+    </header>
+
+    <main class="grid">
+      <!-- SINISTRA: IMMAGINE + MAPPA -->
+      <section class="panel">
+        <div class="media">
+          <div class="frame">
+            <img id="mapImage" src="assets/pessimismo-cosmico.png"
+                 alt="Schema del pessimismo cosmico di Leopardi"
+                 usemap="#mappa-pessimismo" />
+            <map name="mappa-pessimismo">
+              <!-- Uomo – Infinito (parte sinistra) -->
+              <area shape="rect"
+                    data-coords="0,0,800,1100"
+                    coords="0,0,800,1100"
+                    href="uomo-infinito.html"
+                    alt="L'uomo e il desiderio di infinito" />
+              <!-- Male – Natura (parte destra in alto) -->
+              <area shape="rect"
+                    data-coords="800,0,1640,1100"
+                    coords="800,0,1640,1100"
+                    href="male-natura.html"
+                    alt="Il male e la Natura nel pessimismo cosmico" />
+              <!-- Ruolo della Natura matrigna (parte inferiore) -->
+              <area shape="rect"
+                    data-coords="0,1100,1640,1839"
+                    coords="0,1100,1640,1839"
+                    href="natura-matrigna.html"
+                    alt="Il ruolo della Natura matrigna" />
+            </map>
+          </div>
+          <p class="caption">
+            Clicca sulle tre aree principali dello schema per aprire le mini‑lezioni.
+          </p>
+        </div>
+      </section>
+
+      <!-- DESTRA: TESTO + NAV -->
+      <section class="panel">
+        <div class="reader">
+          <h2>Come usare questa pagina</h2>
+          <p>
+            Questo schema riassume il <strong>pessimismo cosmico</strong> di Leopardi.
+            Ogni zona cliccabile apre una mini‑lezione.
+          </p>
+
+          <div class="cards">
+            <a class="card" href="uomo-infinito.html">
+              <h3>1. L’uomo e il desiderio di infinito</h3>
+              <p>Che cos’è l’uomo per Leopardi e perché è progettato per un piacere che il mondo non può dargli.</p>
+            </a>
+            <a class="card" href="male-natura.html">
+              <h3>2. L’origine del male</h3>
+              <p>Perché il dolore non dipende dalla storia o dalla società, ma dalla struttura stessa della Natura.</p>
+            </a>
+            <a class="card" href="natura-matrigna.html">
+              <h3>3. Il ruolo della Natura matrigna</h3>
+              <p>La Natura non è madre ma matrigna: una forza cieca che genera e distrugge senza pietà.</p>
+            </a>
+          </div>
+
+          <div class="callout">
+            <strong>Consiglio didattico:</strong> usa l’immagine iniziale come mappa concettuale,
+            poi apri le tre lezioni in sequenza per costruire la visione completa.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">Progetto Leopardi – Sezione “Pessimismo cosmico”.</div>
+  </div>
+
+  <script>
+    // Rende responsive l'image-map (coords scalati in base alla dimensione reale dell'immagine)
+    (function () {
+      const img = document.getElementById('mapImage');
+      const areas = Array.from(document.querySelectorAll('map[name="mappa-pessimismo"] area'));
+
+      function rescale() {
+        if (!img.naturalWidth || !img.naturalHeight) return;
+        const scaleX = img.clientWidth / img.naturalWidth;
+        const scaleY = img.clientHeight / img.naturalHeight;
+
+        areas.forEach(a => {
+          const orig = (a.dataset.coords || a.getAttribute('coords') || '').split(',').map(Number);
+          if (orig.length !== 4 || orig.some(isNaN)) return;
+          const scaled = [
+            Math.round(orig[0] * scaleX),
+            Math.round(orig[1] * scaleY),
+            Math.round(orig[2] * scaleX),
+            Math.round(orig[3] * scaleY),
+          ];
+          a.coords = scaled.join(',');
+        });
+      }
+
+      img.addEventListener('load', rescale);
+      window.addEventListener('resize', rescale);
+      // fallback se l'immagine è già in cache
+      if (img.complete) rescale();
+    })();
+  </script>
+</body>
+</html>
