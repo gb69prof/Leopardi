@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Leopardi – Web App</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/favicon.svg" alt=""/>
+      <span>Leopardi</span>
+    </a>
+    <button class="hamburger" data-hamburger aria-label="Apri menu"><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" data-drawer aria-hidden="true">
+  <div class="drawer-panel" data-drawer-panel>
+    <h3>Indice</h3>
+    <nav class="nav">
+      <a href="../index.html">Home (mappa)</a>
+<a href="biografia.html">Biografia e formazione</a>
+<a href="contesto.html">Contesto storico-culturale</a>
+<a href="pensiero.html">Pensiero e poetica</a>
+<a href="teoria_piacere.html">Teoria del piacere</a>
+<a href="pessimismo_storico.html">Pessimismo storico</a>
+<a href="sensismo_poetica.html">Sensismo e poetica</a>
+<a href="idillio.html">Idillio leopardiano</a>
+<a href="infinito.html">L’infinito</a>
+<a href="pessimismo_cosmico.html">Pessimismo cosmico / Natura matrigna</a>
+<a href="dialogo.html">Dialogo Natura e Islandese</a>
+<a href="processo.html">Il processo alla Natura</a>
+<a href="stoicismo.html">Ribellione stoica</a>
+<a href="ginestra.html">Titanismo e La ginestra</a>
+<a href="riassunto.html">Riassunto e conclusione</a>
+    </nav>
+    <p class="smallnote">Su iPad puoi anche toccare direttamente le aree evidenziate sulla mappa iniziale.</p>
+  </div>
+</div>
+
+<script defer src="js/app.js"></script>
+
+<main class="container">
+  <div class="two-col">
+    <section class="card">
+      <span class="badge">Mappa interattiva</span>
+      <h1 class="page-title">Filosofia del pensiero leopardiano</h1>
+      <p class="hint">Tocca le aree evidenziate per aprire le pagine di approfondimento. Se un’area ti sembra “stretta”, puoi aprire l’argomento dal menu (☰).</p>
+      <div class="map-wrap" role="img" aria-label="Mappa del pensiero leopardiano con collegamenti">
+        <img src="assets/mappa.webp" alt="Mappa del pensiero leopardiano"/>
+        <a class="hotspot" href="pages/pessimismo_cosmico.html" style="left:7%; top:18%; width:28%; height:10%;" aria-label="Meccanicismo">Meccanicismo</a>
+<a class="hotspot" href="pages/sensismo_poetica.html" style="left:61%; top:18%; width:28%; height:10%;" aria-label="Sensismo">Sensismo</a>
+<a class="hotspot" href="pages/teoria_piacere.html" style="left:36%; top:42%; width:30%; height:10%;" aria-label="Teoria del piacere">Teoria del piacere</a>
+<a class="hotspot" href="pages/pessimismo_storico.html" style="left:56%; top:48%; width:30%; height:11%;" aria-label="Pessimismo storico">Pessimismo storico</a>
+<a class="hotspot" href="pages/idillio.html" style="left:18%; top:66%; width:34%; height:12%;" aria-label="Poetica vago/indefinito">Poetica vago/indefinito</a>
+<a class="hotspot" href="pages/infinito.html" style="left:6%; top:78%; width:28%; height:12%;" aria-label="Teoria visione/suono">Teoria visione/suono</a>
+<a class="hotspot" href="pages/pessimismo_cosmico.html" style="left:55%; top:75%; width:35%; height:10%;" aria-label="Natura matrigna">Natura matrigna</a>
+<a class="hotspot" href="pages/processo.html" style="left:34%; top:84%; width:36%; height:12%;" aria-label="Processo alla Natura">Processo alla Natura</a>
+<a class="hotspot" href="pages/dialogo.html" style="left:56%; top:60%; width:30%; height:10%;" aria-label="Dialogo Natura/Islandese">Dialogo Natura/Islandese</a>
+<a class="hotspot" href="pages/ginestra.html" style="left:65%; top:88%; width:28%; height:10%;" aria-label="La ginestra">La ginestra</a>
+      </div>
+      <p class="smallnote">Le aree sensibili sono state posizionate sulle parole principali della tua mappa.</p>
+    </section>
+
+    <aside class="card">
+      <span class="badge">Percorso</span>
+      <h2 class="page-title" style="font-size:20px">Indice rapido</h2>
+      <div class="prose">
+        <p><b>Cuore:</b> <a href="pages/teoria_piacere.html">Teoria del piacere</a>.</p>
+        <p><b>Dal “prima” al “dopo”:</b> <a href="pages/pessimismo_storico.html">Pessimismo storico</a> → <a href="pages/pessimismo_cosmico.html">Pessimismo cosmico</a>.</p>
+        <p><b>Poetica:</b> <a href="pages/sensismo_poetica.html">Sensismo</a>, <a href="pages/idillio.html">idillio</a>, <a href="pages/infinito.html">L’infinito</a>.</p>
+        <p><b>Operette e uscita “morale”:</b> <a href="pages/processo.html">Processo alla Natura</a>, <a href="pages/ginestra.html">La ginestra</a>.</p>
+        <p class="smallnote">Funziona offline: apri <b>index.html</b> da File su iPad (o caricalo su GitHub Pages).</p>
+      </div>
+    </aside>
+  </div>
+</main>
+<div class="footer">Materiali didattici su Giacomo Leopardi • Web app offline (HTML/CSS/JS)</div>
+</body></html>
